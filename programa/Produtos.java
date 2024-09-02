@@ -19,8 +19,8 @@ public class Produtos {
 	@Override
 	public String toString() {
 		return "[Produtos]: \n nome = " + nome +
-				"/n Preço = " + preco +
-				"/n Quantidade = " + quantidade;
+				"\n Preço = " + preco +
+				"\n Quantidade = " + quantidade + "\n";
 	}
 	
 	
