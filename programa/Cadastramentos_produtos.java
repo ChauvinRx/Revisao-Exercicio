@@ -23,6 +23,7 @@ public class Cadastramentos_produtos {
 		System.out.println("[2] Listar produtos");
 		System.out.println("[3] Pesquisar produto por nome");
 		System.out.println("[4] Editar produto");
+		System.out.println("[5] Remover produto");
 		System.out.println("[6] Sair");
 		int opcao = sc.nextInt();
 		sc.nextLine();
@@ -88,6 +89,24 @@ public class Cadastramentos_produtos {
 				System.out.println("Produto editado: " + produtoEditado);
             } else {
                 System.out.println("Produto não encontrado.");
+			}
+			break;
+			
+		case 5:
+			System.out.print("Qual produto deseja remover? ");
+			String removerProduto = sc.nextLine();
+			Produtos produtoRemovido = null;
+			for (Produtos prod : produtos) {
+				if(prod.getNome().equalsIgnoreCase(removerProduto)) {
+					produtoRemovido = prod;
+					break;
+				}
+			}
+			if(produtoRemovido != null) {
+				produtos.remove(produtoRemovido);
+				System.out.println("O produto " + produtoRemovido + " foi removido");
+			}else {
+				System.out.println("Produto não encontrado!");
 			}
 			break;
 			
