@@ -30,9 +30,15 @@ public class Agenda {
 		case 1:
 			agenda.adicionarContato();
 			break;
+		case 2:
+			System.out.print("Nome do contato que vai remover: ");
+			String nome = sc.nextLine();
+			agenda.removerContato(nome);
+			break;
 		default:
 			System.out.println("Opção Inválida!");
 			break;
+			
 		}
 		
 		}
@@ -49,6 +55,18 @@ public class Agenda {
 		String email = sc.nextLine();
 		Contato contato = new Contato(nome, telefone, email);
 		contatos.add(contato);
+		System.out.println("O contato foi adicionado!");
+	}
+	
+	public void removerContato(String nome) {
+		for(Contato x : contatos) {
+			if(nome.equalsIgnoreCase(x.getNome())) {
+				contatos.remove(x);
+				System.out.println("O contato " + x + " foi removido");
+			}else {
+				System.out.println("Contato não existente");
+			}
+		}
 	}
 
 }
