@@ -36,6 +36,13 @@ public class Agenda {
 		case 3:
 			agenda.atualizarContato();
 			break;
+		case 4:
+			agenda.exibirContatos();
+			break;
+		case 5:
+			System.out.println("Saindo...");
+			executando = false;
+			break;
 		default:
 			System.out.println("Opção Inválida!");
 			break;
@@ -62,13 +69,17 @@ public class Agenda {
 	public void removerContato() {
 		System.out.print("Nome do contato que vai remover: ");
 		String nome = sc.nextLine();
+		boolean contatoRemovido = false;
 		for(Contato x : contatos) {
 			if(nome.equalsIgnoreCase(x.getNome())) {
 				contatos.remove(x);
 				System.out.println("O contato " + x.getNome() + " foi removido");
-			}else {
-				System.out.println("Contato não existente");
+				contatoRemovido = true;
+				break;
 			}
+		}
+		if(!contatoRemovido) {
+			System.out.println("Contato não existente");
 		}
 	}
 	
@@ -106,6 +117,12 @@ public class Agenda {
         }else {
             System.out.println("Contato não encontrado.");
         }	
+	}
+	
+	public void exibirContatos() {
+		for(Contato x : contatos) {
+			System.out.println(x);
+		}
 	}
 
 }
