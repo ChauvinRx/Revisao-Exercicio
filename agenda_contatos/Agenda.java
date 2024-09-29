@@ -1,6 +1,8 @@
 package agenda_contatos;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -120,6 +122,7 @@ public class Agenda {
 	}
 	
 	public void exibirContatos() {
+		Collections.sort(contatos, Comparator.comparing(Contato::getNome));
 		for(Contato x : contatos) {
 			System.out.println(x);
 		}
