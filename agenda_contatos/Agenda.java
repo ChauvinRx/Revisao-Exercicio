@@ -56,6 +56,13 @@ public class Agenda {
 		sc.close();
 	}
 	
+	public String formatarNome(String nome) {
+		if(nome == null || nome.isEmpty()) {
+			return nome;
+		}
+		return nome.substring(0, 1).toUpperCase() + nome.substring(1).toLowerCase();
+	}
+	
 	public void adicionarContato() {
 		System.out.print("Nome: ");
 		String nome = sc.nextLine();
@@ -63,7 +70,7 @@ public class Agenda {
 		String telefone = sc.nextLine();
 		System.out.print("Email: ");
 		String email = sc.nextLine();
-		Contato contato = new Contato(nome, telefone, email);
+		Contato contato = new Contato(formatarNome(nome), telefone, email);
 		contatos.add(contato);
 		System.out.println("O contato foi adicionado!");
 	}
@@ -101,7 +108,7 @@ public class Agenda {
             System.out.print("Novo nome (ou pressione Enter para manter): ");
             String novoNome = sc.nextLine();
             if (!novoNome.isEmpty()) {
-                contato.setNome(novoNome);
+                contato.setNome(formatarNome(novoNome));
             }
 
             System.out.print("Novo telefone (ou pressione Enter para manter): ");
